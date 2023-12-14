@@ -1,0 +1,20 @@
+body {
+  padding: 15vh 0;
+}
+
+p {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline;
+}
+
+.square {
+  border: solid 10px black;
+  border-radius: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 100px;
+  margin: 0 auto;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 18pt;
+}

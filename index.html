@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/micromodal.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="square">
+      <p id="loc"></p>
+      <span id="changeLocButton">
+        <img src="./assets/images/edit_icon.svg" alt="" />
+      </span>
+      <h1 id="time"></h1>
+      <p id="date"></p>
+    </div>
+
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1">
+        <div
+          class="modal__container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-1-title"
+        >
+          <header class="modal__header">
+            <h2 class="modal__title" id="modal-1-title">Change Timezone</h2>
+            <button class="modal__close"></button>
+          </header>
+          <main class="modal__content" id="modal-1-content">
+            <button class="modal__btn btn-select">
+              Select Timezone
+              <img
+                src="./assets/images/chevron-down.svg"
+                style="margin-bottom: -5px"
+                alt=""
+              />
+            </button>
+            <button id="apply" class="modal__btn modal__btn-primary">
+              Apply
+            </button>
+          </main>
+        </div>
+        <div class="modal__container timezone">
+          <input
+            type="search"
+            name="Search"
+            placeholder="search timezone"
+            id="tzSearch"
+          />
+          <div class="list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./node_modules/dayjs/dayjs.min.js"></script>
+    <script src="./node_modules/dayjs/plugin/utc.js"></script>
+    <script src="./node_modules/dayjs/plugin/timezone.js"></script>
+    <script src="./node_modules/dayjs/plugin/customParseFormat.js"></script>
+    <script src="./node_modules/micromodal/dist/micromodal.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

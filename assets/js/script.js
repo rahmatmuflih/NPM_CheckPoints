@@ -1,3 +1,5 @@
+require("dayjs");
+
 const chevIMG = document.createElement("img");
 var loc = document.querySelector("#loc");
 var time = document.querySelector("#time");

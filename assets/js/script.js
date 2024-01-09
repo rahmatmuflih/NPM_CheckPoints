@@ -1,3 +1,5 @@
+// import dayjs from "dayjs";
+
 const chevIMG = document.createElement("img");
 var loc = document.querySelector("#loc");
 var time = document.querySelector("#time");
@@ -14,6 +16,7 @@ var tzApplied = "";
 var allPara = [];
 var flag = 1; // flag value: 1 (off) , value: 0 (on)
 
+dayjs.extend(dayjs_plugin_customParseFormat);
 dayjs.extend(dayjs_plugin_utc);
 dayjs.extend(dayjs_plugin_timezone);
 

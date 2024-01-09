@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta
+      charset="utf-8"
+      content="text/html; X-Content-Type-Options=nosniff"
+      http-equiv="Content-Type"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clock</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -50,17 +54,20 @@
           </main>
         </div>
         <div class="modal__container timezone">
-          <!-- <input
+          <input
             type="search"
             name="Search"
-            placeholder="search timezone"
+            placeholder="please enter timezone with format *continent*/*city*"
+            onblur="this.placeholder='please enter timezone with format *continent\*/\*city*'"
+            onfocus="this.placeholder=''"
             id="tzSearch"
-          /> -->
+          />
           <div class="list"></div>
         </div>
       </div>
     </div>
 
+    <script src="https://unpkg.com/default-passive-events"></script>
     <script src="./node_modules/dayjs/dayjs.min.js"></script>
     <script src="./node_modules/dayjs/plugin/utc.js"></script>
     <script src="./node_modules/dayjs/plugin/timezone.js"></script>

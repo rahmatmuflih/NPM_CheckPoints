@@ -1,4 +1,6 @@
 import dayjs from "./dayjs";
+import utc from "./dayjs/plugin/utc";
+import tz from "./dayjs/plugin/timezone";
 
 const chevIMG = document.createElement("img");
 var loc = document.querySelector("#loc");
@@ -9,7 +11,7 @@ var chngLocButton = document.querySelector("#changeLocButton");
 var applyButton = document.querySelector("#apply");
 var btnSelect = document.querySelector(".btn-select");
 var btnClose = document.querySelector(".modal__close");
-var tz = document.querySelector(".timezone");
+// var timeZone = document.querySelector(".timezone");
 var list = document.querySelector(".list");
 var tzChosen = "";
 var tzApplied = "";

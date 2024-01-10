@@ -7,6 +7,7 @@ var chngLocButton = document.querySelector("#changeLocButton");
 var applyButton = document.querySelector("#apply");
 var btnSelect = document.querySelector(".btn-select");
 var btnClose = document.querySelector(".modal__close");
+var tz = document.querySelector(".timezone");
 var list = document.querySelector(".list");
 var tzChosen = "";
 var tzApplied = "";

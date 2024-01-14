@@ -5,14 +5,18 @@ var date = document.querySelector("#date");
 var tzSearch = document.querySelector("#tzSearch");
 var chngLocButton = document.querySelector("#changeLocButton");
 var applyButton = document.querySelector("#apply");
+var clock = document.querySelector(".clock");
+var loadingContainer = document.querySelector(".loading-container");
 var btnSelect = document.querySelector(".btn-select");
 var btnClose = document.querySelector(".modal__close");
 var tz = document.querySelector(".timezone");
 var list = document.querySelector(".list");
+var loadingSearch = document.querySelector(".loading-search");
 var tzChosen = "";
 var tzApplied = "";
 var allPara = [];
 var flag = 1; // flag value: 1 (off) , value: 0 (on)
+var flagSearch = 0;
 
 dayjs.extend(dayjs_plugin_customParseFormat);
 dayjs.extend(dayjs_plugin_utc);
@@ -31,7 +35,17 @@ function startTime() {
   setTimeout(startTime, 1000);
 }
 
-startTime();
+function showTime() {
+  if ((loc && time && date) === undefined) {
+    loadingContainer.style.display = "flex";
+    clock.style.display = "none";
+  } else {
+    loadingContainer.style.display = "none";
+    clock.style.display = "block";
+    startTime();
+  }
+}
+showTime();
 
 Intl.supportedValuesOf("timeZone").forEach(function (e) {
   const para = document.createElement("p");
@@ -82,9 +96,17 @@ chngLocButton.addEventListener("click", function () {
 
 applyButton.addEventListener("click", function () {
   tzApplied = tzChosen;
-  console.log(tzApplied);
-  console.log(dayjs(dayjs.tz(dayjs().format(), tzApplied)).format("HH:mm:ss"));
   MicroModal.close("modal-1");
+  showTime();
+  tzSearch.value = "";
+  for (let i = 0; i < allPara.length; i++) {
+    allPara[i].style.display = "none";
+  }
+  for (let i = 0; i < allPara.length; i++) {
+    allPara[i].style.display = "block";
+    allPara[i].style.marginTop = "-10px";
+  }
+  allPara[0].style.marginTop = "10px";
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
   btnSelect.appendChild(chevIMG);
@@ -95,6 +117,15 @@ applyButton.addEventListener("click", function () {
 btnClose.addEventListener("click", function () {
   tz.scrollTo(0, 0);
   MicroModal.close("modal-1");
+  showTime();
+  tzSearch.value = "";
+  for (let i = 0; i < allPara.length; i++) {
+    allPara[i].style.display = "none";
+  }
+  for (let i = 0; i < allPara.length; i++) {
+    allPara[i].style.display = "block";
+    allPara[i].style.marginTop = "-10px";
+  }
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
   btnSelect.appendChild(chevIMG);

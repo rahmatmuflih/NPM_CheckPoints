@@ -8,6 +8,10 @@ p {
   display: inline;
 }
 
+.clock {
+  display: none; /* default display value => 'block'/'none' */
+}
+
 .square {
   border: solid 10px black;
   border-radius: 10px;
@@ -17,4 +21,38 @@ p {
   margin: 0 auto;
   font-family: "Silkscreen", sans-serif;
   font-size: 18pt;
+}
+
+.loading-container {
+  display: flex; /* default display value => 'flex'/'none' */
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  width: 178.7px;
+  height: 178.7px;
+  margin: 0 110.15px;
+  border-top: 10px solid black;
+  border-radius: 50%;
+  -webkit-animation: loading-screen 1s infinite;
+  animation: loading-screen 1s infinite;
+}
+
+@keyframes loading-screen {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-screen {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

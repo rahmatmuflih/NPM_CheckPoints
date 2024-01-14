@@ -19,14 +19,18 @@
   </head>
   <body>
     <div class="square">
-      <p id="loc"></p>
-      <span id="changeLocButton">
-        <img src="./assets/images/edit_icon.svg" alt="" />
-      </span>
-      <h1 id="time"></h1>
-      <p id="date"></p>
+      <div class="loading-container">
+        <div class="loading"></div>
+      </div>
+      <div class="clock">
+        <p id="loc"></p>
+        <span id="changeLocButton">
+          <img src="./assets/images/edit_icon.svg" alt="" />
+        </span>
+        <h1 id="time"></h1>
+        <p id="date"></p>
+      </div>
     </div>
-
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
       <div class="modal__overlay" tabindex="-1">
         <div
@@ -63,6 +67,7 @@
             id="tzSearch"
           />
           <div class="list"></div>
+          </div>
         </div>
       </div>
     </div>

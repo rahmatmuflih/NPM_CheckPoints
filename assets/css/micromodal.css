@@ -188,6 +188,17 @@
   will-change: transform;
 }
 
+.loading-search {
+  display: none;
+  width: 90px;
+  height: 90px;
+  margin: 10px 110.15px;
+  border-top: 10px solid black;
+  border-radius: 50%;
+  -webkit-animation: loading-screen 1s infinite;
+  animation: loading-screen 1s infinite;
+}
+
 /* Animation */
 
 @keyframes mmfadeIn {

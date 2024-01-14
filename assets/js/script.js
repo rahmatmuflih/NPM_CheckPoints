@@ -16,7 +16,6 @@ var tzChosen = "";
 var tzApplied = "";
 var allPara = [];
 var flag = 1; // flag value: 1 (off) , value: 0 (on)
-var flagSearch = 0;
 
 dayjs.extend(dayjs_plugin_customParseFormat);
 dayjs.extend(dayjs_plugin_utc);

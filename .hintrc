@@ -5,6 +5,8 @@
   "hints": {
     "no-inline-styles": "off",
     "axe/name-role-value": "off",
-    "meta-charset-utf-8": "off"
+    "meta-charset-utf-8": "off",
+    "compat-api/css": "off",
+    "css-prefix-order": "off"
   }
 }

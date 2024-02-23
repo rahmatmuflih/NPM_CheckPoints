@@ -11,11 +11,11 @@ var btnSelect = document.querySelector(".btn-select");
 var btnClose = document.querySelector(".modal__close");
 var tz = document.querySelector(".timezone");
 var list = document.querySelector(".list");
-// var loadingSearch = document.querySelector(".loading-search"); // soon add loading bar in seach timezone modal
 var tzChosen = "";
 var tzApplied = "";
 var allPara = [];
 var flag = 1; // flag value: 1 (off) , value: 0 (on)
+var fListMar = 0; // otomatis
 
 dayjs.extend(dayjs_plugin_customParseFormat);
 dayjs.extend(dayjs_plugin_utc);
@@ -62,31 +62,20 @@ Intl.supportedValuesOf("timeZone").forEach(function (e) {
 });
 
 tzSearch.addEventListener("input", function () {
-  if (tzSearch.value === "") {
-    for (let i = 0; i < allPara.length; i++) {
-      allPara[i].style.display = "none";
-    }
-    for (let i = 0; i < allPara.length; i++) {
-      allPara[i].style.display = "block";
-      allPara[i].style.marginTop = "-10px";
-    }
-    allPara[0].style.marginTop = "10px";
-  } else {
-    for (let i = 0; i < allPara.length; i++) {
-      allPara[i].style.display =
-        allPara[i].innerText === tzSearch.value ||
-        allPara[i].innerText.toLowerCase() === tzSearch.value.toLowerCase() ||
-        allPara[i].innerText.toUpperCase() === tzSearch.value.toUpperCase()
-          ? "block"
-          : "none";
-      allPara[i].style.marginTop =
-        allPara[i].innerText === tzSearch.value ||
-        allPara[i].innerText.toLowerCase() === tzSearch.value.toLowerCase() ||
-        allPara[i].innerText.toUpperCase() === tzSearch.value.toUpperCase()
-          ? "10px"
-          : "0px";
-    }
-  }
+  allPara.forEach(function (element, i) {
+    tzSearch.style.marginBottom =
+      (tzSearch.value !== "" &&
+        tzSearch.value !== "a" &&
+        tz.scrollHeight > 0) ||
+      fListMar === 1
+        ? "20px"
+        : "0px";
+    element.style.display =
+      tzSearch.value.toLowerCase() ===
+      element.innerText.slice(0, tzSearch.value.length).toLowerCase()
+        ? "block"
+        : "none";
+  });
 });
 
 chngLocButton.addEventListener("click", function () {
@@ -98,14 +87,15 @@ applyButton.addEventListener("click", function () {
   MicroModal.close("modal-1");
   showTime();
   tzSearch.value = "";
-  for (let i = 0; i < allPara.length; i++) {
-    allPara[i].style.display = "none";
-  }
-  for (let i = 0; i < allPara.length; i++) {
-    allPara[i].style.display = "block";
-    allPara[i].style.marginTop = "-10px";
-  }
-  allPara[0].style.marginTop = "10px";
+  allPara.forEach(function (element) {
+    element.style.display = "none";
+  });
+  allPara.forEach(function (element) {
+    element.style.display = "block";
+    element.style.marginTop = "-10px";
+  });
+  tzSearch.style.marginBottom = "20px";
+  fListMar = 1;
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
   btnSelect.appendChild(chevIMG);
@@ -118,13 +108,15 @@ btnClose.addEventListener("click", function () {
   MicroModal.close("modal-1");
   showTime();
   tzSearch.value = "";
-  for (let i = 0; i < allPara.length; i++) {
-    allPara[i].style.display = "none";
-  }
-  for (let i = 0; i < allPara.length; i++) {
-    allPara[i].style.display = "block";
-    allPara[i].style.marginTop = "-10px";
-  }
+  allPara.forEach(function (element) {
+    element.style.display = "none";
+  });
+  allPara.forEach(function (element) {
+    element.style.display = "block";
+    element.style.marginTop = "-10px";
+  });
+  tzSearch.style.marginBottom = "20px";
+  fListMar = 1;
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
   btnSelect.appendChild(chevIMG);

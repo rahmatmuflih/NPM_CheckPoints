@@ -73,6 +73,9 @@ tzSearch.addEventListener("input", function () {
 
 chngLocButton.addEventListener("click", function () {
   MicroModal.show("modal-1");
+  allPara.forEach(function (element) {
+    element.style.display = "block";
+  });
 });
 
 applyButton.addEventListener("click", function () {
@@ -82,9 +85,6 @@ applyButton.addEventListener("click", function () {
   tzSearch.value = "";
   allPara.forEach(function (element) {
     element.style.display = "none";
-  });
-  allPara.forEach(function (element) {
-    element.style.display = "block";
   });
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
@@ -100,9 +100,6 @@ btnClose.addEventListener("click", function () {
   tzSearch.value = "";
   allPara.forEach(function (element) {
     element.style.display = "none";
-  });
-  allPara.forEach(function (element) {
-    element.style.display = "block";
   });
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";

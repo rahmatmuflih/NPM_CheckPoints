@@ -15,7 +15,6 @@ var tzChosen = "";
 var tzApplied = "";
 var allPara = [];
 var flag = 1; // flag value: 1 (off) , value: 0 (on)
-var fListMar = 0; // otomatis
 
 dayjs.extend(dayjs_plugin_customParseFormat);
 dayjs.extend(dayjs_plugin_utc);
@@ -44,6 +43,7 @@ function showTime() {
     startTime();
   }
 }
+
 showTime();
 
 Intl.supportedValuesOf("timeZone").forEach(function (e) {
@@ -62,7 +62,7 @@ Intl.supportedValuesOf("timeZone").forEach(function (e) {
 });
 
 tzSearch.addEventListener("input", function () {
-  allPara.forEach(function (element, i) {
+  allPara.forEach(function (element) {
     element.style.display =
       tzSearch.value.toLowerCase() ===
       element.innerText.slice(0, tzSearch.value.length).toLowerCase()
@@ -72,7 +72,6 @@ tzSearch.addEventListener("input", function () {
 });
 
 chngLocButton.addEventListener("click", function () {
-  fListMar = 1;
   MicroModal.show("modal-1");
 });
 
@@ -86,10 +85,7 @@ applyButton.addEventListener("click", function () {
   });
   allPara.forEach(function (element) {
     element.style.display = "block";
-    element.style.marginTop = "-10px";
   });
-  tzSearch.style.marginBottom = "20px";
-  fListMar = 1;
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
   btnSelect.appendChild(chevIMG);
@@ -107,10 +103,7 @@ btnClose.addEventListener("click", function () {
   });
   allPara.forEach(function (element) {
     element.style.display = "block";
-    element.style.marginTop = "-10px";
   });
-  tzSearch.style.marginBottom = "20px";
-  fListMar = 1;
   btnSelect.textContent = "SELECT TIMEZONE";
   chevIMG.src = "./assets/images/chevron-down.svg";
   btnSelect.appendChild(chevIMG);

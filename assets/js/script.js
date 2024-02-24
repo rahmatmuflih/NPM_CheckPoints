@@ -44,6 +44,23 @@ function showTime() {
   }
 }
 
+function Close() {
+  tz.scrollTo(0, 0);
+  MicroModal.close("modal-1");
+  tzSearch.value = "";
+  allPara.forEach(function (element) {
+    element.style.display = "none";
+  });
+  allPara.forEach(function (element) {
+    element.style.display = "block";
+  });
+  btnSelect.textContent = "SELECT TIMEZONE";
+  chevIMG.src = "./assets/images/chevron-down.svg";
+  btnSelect.appendChild(chevIMG);
+  tz.style.display = "none";
+  flag = 1;
+}
+
 showTime();
 
 Intl.supportedValuesOf("timeZone").forEach(function (e) {
@@ -51,6 +68,7 @@ Intl.supportedValuesOf("timeZone").forEach(function (e) {
   para.innerText = e;
   list.appendChild(para);
   para.addEventListener("click", function () {
+    tz.scrollTo(0, 0);
     btnSelect.textContent = e;
     tzChosen = e;
     chevIMG.src = "./assets/images/chevron-down.svg";
@@ -73,40 +91,14 @@ tzSearch.addEventListener("input", function () {
 
 chngLocButton.addEventListener("click", function () {
   MicroModal.show("modal-1");
-  allPara.forEach(function (element) {
-    element.style.display = "block";
-  });
 });
 
 applyButton.addEventListener("click", function () {
   tzApplied = tzChosen;
-  MicroModal.close("modal-1");
-  showTime();
-  tzSearch.value = "";
-  allPara.forEach(function (element) {
-    element.style.display = "none";
-  });
-  btnSelect.textContent = "SELECT TIMEZONE";
-  chevIMG.src = "./assets/images/chevron-down.svg";
-  btnSelect.appendChild(chevIMG);
-  tz.style.display = "none";
-  flag = 1;
+  Close();
 });
 
-btnClose.addEventListener("click", function () {
-  tz.scrollTo(0, 0);
-  MicroModal.close("modal-1");
-  showTime();
-  tzSearch.value = "";
-  allPara.forEach(function (element) {
-    element.style.display = "none";
-  });
-  btnSelect.textContent = "SELECT TIMEZONE";
-  chevIMG.src = "./assets/images/chevron-down.svg";
-  btnSelect.appendChild(chevIMG);
-  tz.style.display = "none";
-  flag = 1;
-});
+btnClose.addEventListener("click", Close);
 
 btnSelect.addEventListener("click", function () {
   if (flag === 1) {

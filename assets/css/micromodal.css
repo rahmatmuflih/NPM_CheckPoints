@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+#tzSearch {
+  margin-bottom: 20px;
+}
+
 .modal,
 .modal__btn {
   font-family: "Silkscreen", sans-serif !important;
@@ -140,10 +144,6 @@
   border: 2px solid #000;
   margin-top: 5px;
   background-color: #fff;
-}
-
-.list p:first-child {
-  margin-top: 10px;
 }
 
 .list p {

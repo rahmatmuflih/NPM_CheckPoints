@@ -63,13 +63,6 @@ Intl.supportedValuesOf("timeZone").forEach(function (e) {
 
 tzSearch.addEventListener("input", function () {
   allPara.forEach(function (element, i) {
-    tzSearch.style.marginBottom =
-      (tzSearch.value !== "" &&
-        tzSearch.value !== "a" &&
-        tz.scrollHeight > 0) ||
-      fListMar === 1
-        ? "20px"
-        : "0px";
     element.style.display =
       tzSearch.value.toLowerCase() ===
       element.innerText.slice(0, tzSearch.value.length).toLowerCase()
@@ -79,6 +72,7 @@ tzSearch.addEventListener("input", function () {
 });
 
 chngLocButton.addEventListener("click", function () {
+  fListMar = 1;
   MicroModal.show("modal-1");
 });
 
